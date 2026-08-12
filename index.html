@@ -3,19 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como Criar o Jogo Flappy Bird</title>
+  <title>A História e Como Criar o Flappy Bird</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>Aprenda a Criar o Flappy Bird em JavaScript</h1>
-    <p>Um guia passo a passo para desenvolver o seu próprio jogo do zero!</p>
+    <h1>A Jornada do Flappy Bird</h1>
+    <p>Conheça o fenômeno dos games e aprenda a criar sua própria versão em JavaScript!</p>
   </header>
 
   <main class="container">
-    <section class="game-section">
-      <h2>Teste o Jogo</h2>
+    
+    <section class="card history-section">
+      <h2>📜 A História do Flappy Bird</h2>
+      <p>
+        Lançado em maio de 2013 pelo desenvolvedor vietnamita <strong>Dong Nguyen</strong>, o <em>Flappy Bird</em> passou despercebido por meses. Foi apenas no início de 2014 que o jogo viralizou de forma estrondosa, tornando-se o aplicativo mais baixado na App Store e Google Play.
+      </p>
+      <p>
+        Apesar do design simples em estilo 8-bit e da mecânica de um único toque, sua dificuldade extrema viciou milhões de jogadores pelo mundo. O jogo gerava cerca de US$ 50.000 por dia em publicidade.
+      </p>
+      <blockquote>
+        "O Flappy Bird foi projetado para ser jogado em alguns minutos de relaxamento. Mas ele se tornou um produto altamente viciante." <br>— <em>Dong Nguyen</em>
+      </blockquote>
+      <p>
+        Em fevereiro de 2014, no auge do sucesso, Nguyen tomou a decisão inacreditável de remover o jogo das lojas, citando culpa pelo vício que havia causado. O sumiço do jogo deu origem a centenas de clones e ao desejo de novos programadores de recriarem essa mecânica icônica.
+      </p>
+    </section>
+
+    <section class="card game-section">
+      <h2>🎮 Teste o Jogo</h2>
       <p>Clique na tela ou pressione a tecla <strong>Espaço</strong> para voar.</p>
       
       <div class="canvas-wrapper">
@@ -27,28 +44,42 @@
       </div>
     </section>
 
-    <section class="tutorial-section">
-      <h2>Passo a Passo de Desenvolvimento</h2>
+    <section class="card tutorial-section">
+      <h2>🛠️ Passo a Passo de Desenvolvimento</h2>
 
       <article class="step">
-        <h3>1. Estrutura Básica (HTML5 Canvas)</h3>
-        <p>Utilizamos a tag <code>&lt;canvas&gt;</code> para renderizar os elementos gráficos do jogo via JavaScript.</p>
+        <h3>1. Onde Tudo Começa: O Canvas</h3>
+        <p>
+          Utilizamos a tag HTML5 <code>&lt;canvas&gt;</code> como um "quadro em branco". Através do JavaScript, limpamos e desenhamos a tela 60 vezes por segundo para dar a ilusão de movimento (animação).
+        </p>
       </article>
 
       <article class="step">
-        <h3>2. Estilização (CSS3)</h3>
-        <p>Centralizamos o jogo e deixamos a interface limpa e responsiva para qualquer dispositivo.</p>
+        <h3>2. A Física do Passarinho (Gravidade e Pulo)</h3>
+        <p>
+          Para simular o peso do personagem, aplicamos uma constante de gravidade à velocidade vertical ($v_y$) do objeto. A cada frame, atualizamos a posição vertical ($Y$):
+        </p>
+        <p>$$Y_{novo} = Y_{atual} + v_y$$</p>
+        <p>
+          Quando você pressiona o botão de pulo, simplesmente redefinimos $v_y$ para um valor negativo, fazendo o passarinho "subir" temporariamente.
+        </p>
       </article>
 
       <article class="step">
-        <h3>3. Lógica do Jogo (JavaScript)</h3>
-        <ul>
-          <li><strong>Gravidade e Pulo:</strong> Atualizamos a posição vertical ($Y$) do passarinho a cada frame.</li>
-          <li><strong>Geração de Canos:</strong> Criamos obstáculos dinâmicos com lacunas aleatórias.</li>
-          <li><strong>Detecção de Colisão:</strong> Verificamos se as bordas do passarinho interceptam os canos ou os limites do mapa.</li>
-        </ul>
+        <h3>3. Geração Automática de Obstáculos</h3>
+        <p>
+          Criamos uma lista de canos que surgem periodicamente no lado direito da tela. Cada cano possui uma abertura (gap) definida em uma posição vertical aleatória.
+        </p>
+      </article>
+
+      <article class="step">
+        <h3>4. Detecção de Colisão</h3>
+        <p>
+          Verificamos o tempo todo se a área do passarinho cruza os limites do canvas ou os retângulos dos canos. Se houver sobreposição de bordas, definimos <code>gameOver = true</code>.
+        </p>
       </article>
     </section>
+
   </main>
 
   <footer>
