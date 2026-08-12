@@ -3,87 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A História e Como Criar o Flappy Bird</title>
+  <title>Manual Definitivo: EA Sports FIFA & FC</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>A Jornada do Flappy Bird</h1>
-    <p>Conheça o fenômeno dos games e aprenda a criar sua própria versão em JavaScript!</p>
+    <h1>EA Sports FIFA / EA Sports FC</h1>
+    <p>O Guia Completo: História, Evolução Técnica, Táticas e Glossário Gamer</p>
   </header>
 
   <main class="container">
     
     <section class="card history-section">
-      <h2>📜 A História do Flappy Bird</h2>
+      <h2>📜 A Origem e Evolução da Franquia</h2>
       <p>
-        Lançado em maio de 2013 pelo desenvolvedor vietnamita <strong>Dong Nguyen</strong>, o <em>Flappy Bird</em> passou despercebido por meses. Foi apenas no início de 2014 que o jogo viralizou de forma estrondosa, tornando-se o aplicativo mais baixado na App Store e Google Play.
+        Desenvolvido pela divisão <strong>EA Canada</strong> em Vancouver, o primeiro título (<em>FIFA International Soccer</em>, lançado no final de 1993) revolucionou o mercado com a câmera em visão isométrica. Na época, os jogos concorrentes utilizavam apenas visões superiores (top-down) ou totalmente 2D.
       </p>
       <p>
-        Apesar do design simples em estilo 8-bit e da mecânica de um único toque, sua dificuldade extrema viciou milhões de jogadores pelo mundo. O jogo gerava cerca de US$ 50.000 por dia em publicidade.
+        Durante os anos 2000, a série enfrentou sua rivalidade mais acirrada com o <em>Pro Evolution Soccer (PES)</em> da Konami. A virada de chave da EA veio com os investimentos em motores de física, licenças exclusivas de ligas globais e a criação de uma comunidade competitiva global.
       </p>
-      <blockquote>
-        "O Flappy Bird foi projetado para ser jogado em alguns minutos de relaxamento. Mas ele se tornou um produto altamente viciante." <br>— <em>Dong Nguyen</em>
-      </blockquote>
       <p>
-        Em fevereiro de 2014, no auge do sucesso, Nguyen tomou a decisão inacreditável de remover o jogo das lojas, citando culpa pelo vício que havia causado. O sumiço do jogo deu origem a centenas de clones e ao desejo de novos programadores de recriarem essa mecânica icônica.
+        A mudança histórica de marca em 2023 para <strong>EA Sports FC</strong> marcou a independência da desenvolvedora em relação à entidade FIFA, mantendo mais de 19.000 atletas, 700 times e 30 ligas ao redor do mundo.
       </p>
     </section>
 
-    <section class="card game-section">
-      <h2>🎮 Teste o Jogo</h2>
-      <p>Clique na tela ou pressione a tecla <strong>Espaço</strong> para voar.</p>
+    <section class="card interactive-section">
+      <h2>🎮 Linha do Tempo Interativa</h2>
+      <p>Selecione uma era para explorar as inovações tecnológicas e marcos históricos:</p>
       
-      <div class="canvas-wrapper">
-        <canvas id="flappyCanvas" width="320" height="480"></canvas>
+      <div class="timeline-buttons">
+        <button class="era-btn active" data-era="90s">1993 - 1999</button>
+        <button class="era-btn" data-era="00s">2000 - 2008</button>
+        <button class="era-btn" data-era="09s">2009 - 2016</button>
+        <button class="era-btn" data-era="17s">2017 - 2022</button>
+        <button class="era-btn" data-era="20s">2023 - Presente</button>
       </div>
 
-      <div class="controls">
-        <button id="restartBtn">Reiniciar Jogo</button>
+      <div id="eraDetails" class="era-box">
+        </div>
+    </section>
+
+    <section class="card stats-section">
+      <h2>📊 Números e Impacto Cultural</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>+325 Milhões</h3>
+          <p>De cópias vendidas ao longo de 30 anos de história.</p>
+        </div>
+        <div class="stat-item">
+          <h3>FUT</h3>
+          <p>Modo criado em 2009 que revolucionou a indústria dos eSports.</p>
+        </div>
+        <div class="stat-item">
+          <h3>EA Sports FC 24</h3>
+          <p>Primeiro título pós-renomeação com inclusão das ligas femininas no Ultimate Team.</p>
+        </div>
       </div>
     </section>
 
-    <section class="card tutorial-section">
-      <h2>🛠️ Passo a Passo de Desenvolvimento</h2>
+    <section class="card manual-section">
+      <h2>🛠️ Manual Prático: Conceitos Avançados de Gameplay</h2>
+      
+      <div class="manual-grid">
+        <div class="manual-col">
+          <h3>⚽ Ataque e Construção</h3>
+          <ul>
+            <li><strong>Chute de Colocação:</strong> $L1 + \text{Chute}$ (PS) / $LB + \text{Chute}$ (Xbox). Ideal para finalizações curvadas no canto.</li>
+            <li><strong>Passe Rasteiro Forte:</strong> $R1 + X$ (PS) / $RB + A$ (Xbox). Quebra linhas defensivas compactas.</li>
+            <li><strong>Chute Superpotente (Power Shot):</strong> $L1 + R1 + \text{Chute}$ (PS) / $LB + RB + \text{Chute}$ (Xbox). Exige mira manual e espaço.</li>
+          </ul>
+        </div>
 
-      <article class="step">
-        <h3>1. Onde Tudo Começa: O Canvas</h3>
-        <p>
-          Utilizamos a tag HTML5 <code>&lt;canvas&gt;</code> como um "quadro em branco". Através do JavaScript, limpamos e desenhamos a tela 60 vezes por segundo para dar a ilusão de movimento (animação).
-        </p>
-      </article>
+        <div class="manual-col">
+          <h3>🛡️ Defesa e Posicionamento</h3>
+          <ul>
+            <li><strong>Cercar Pacientemente (Jockey):</strong> Segurar $L2$ (PS) / $LT$ (Xbox) para manter o defensor de frente para o atacante sem dar o bote.</li>
+            <li><strong>Cultura de Linha Alta:</strong> Use táticas de pressão para forçar erros na saída de bola adversária.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <article class="step">
-        <h3>2. A Física do Passarinho (Gravidade e Pulo)</h3>
-        <p>
-          Para simular o peso do personagem, aplicamos uma constante de gravidade à velocidade vertical ($v_y$) do objeto. A cada frame, atualizamos a posição vertical ($Y$):
-        </p>
-        <p>$$Y_{novo} = Y_{atual} + v_y$$</p>
-        <p>
-          Quando você pressiona o botão de pulo, simplesmente redefinimos $v_y$ para um valor negativo, fazendo o passarinho "subir" temporariamente.
-        </p>
-      </article>
-
-      <article class="step">
-        <h3>3. Geração Automática de Obstáculos</h3>
-        <p>
-          Criamos uma lista de canos que surgem periodicamente no lado direito da tela. Cada cano possui uma abertura (gap) definida em uma posição vertical aleatória.
-        </p>
-      </article>
-
-      <article class="step">
-        <h3>4. Detecção de Colisão</h3>
-        <p>
-          Verificamos o tempo todo se a área do passarinho cruza os limites do canvas ou os retângulos dos canos. Se houver sobreposição de bordas, definimos <code>gameOver = true</code>.
-        </p>
-      </article>
+    <section class="card glossary-section">
+      <h2>📖 Dicionário de Termos Gamer / eSports</h2>
+      <dl>
+        <dt><strong>Meta:</strong></dt>
+        <dd>A tática, formação ou estilo de jogo mais eficiente dentro do código atual do jogo.</dd>
+        
+        <dt><strong>SBC / MEO (Desafio de Montagem de Elenco):</strong></dt>
+        <dd>Modo onde você troca cartas de jogadores por recompensas ou pacotes especiais.</dd>
+        
+        <dt><strong>Sweaty / Apelão:</strong></dt>
+        <dd>Estilo de jogo focado puramente em mecânicas de alta eficiência e velocidade para vencer a qualquer custo.</dd>
+        
+        <dt><strong>Scripting / Handicap:</strong></dt>
+        <dd>Teoria popular na comunidade de que o jogo altera dinamicamente a física para equilibrar partidas.</dd>
+      </dl>
     </section>
 
   </main>
 
   <footer>
-    <p>Projeto criado para publicação no <strong>GitHub Pages</strong>.</p>
+    <p>Manual da Franquia EA Sports criado para publicação no <strong>GitHub Pages</strong>.</p>
   </footer>
 
   <script src="script.js"></script>
