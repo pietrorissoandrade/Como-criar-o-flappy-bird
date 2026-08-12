@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Criar o Jogo Flappy Bird</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Aprenda a Criar o Flappy Bird em JavaScript</h1>
+    <p>Um guia passo a passo para desenvolver o seu próprio jogo do zero!</p>
+  </header>
+
+  <main class="container">
+    <section class="game-section">
+      <h2>Teste o Jogo</h2>
+      <p>Clique na tela ou pressione a tecla <strong>Espaço</strong> para voar.</p>
+      
+      <div class="canvas-wrapper">
+        <canvas id="flappyCanvas" width="320" height="480"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="restartBtn">Reiniciar Jogo</button>
+      </div>
+    </section>
+
+    <section class="tutorial-section">
+      <h2>Passo a Passo de Desenvolvimento</h2>
+
+      <article class="step">
+        <h3>1. Estrutura Básica (HTML5 Canvas)</h3>
+        <p>Utilizamos a tag <code>&lt;canvas&gt;</code> para renderizar os elementos gráficos do jogo via JavaScript.</p>
+      </article>
+
+      <article class="step">
+        <h3>2. Estilização (CSS3)</h3>
+        <p>Centralizamos o jogo e deixamos a interface limpa e responsiva para qualquer dispositivo.</p>
+      </article>
+
+      <article class="step">
+        <h3>3. Lógica do Jogo (JavaScript)</h3>
+        <ul>
+          <li><strong>Gravidade e Pulo:</strong> Atualizamos a posição vertical ($Y$) do passarinho a cada frame.</li>
+          <li><strong>Geração de Canos:</strong> Criamos obstáculos dinâmicos com lacunas aleatórias.</li>
+          <li><strong>Detecção de Colisão:</strong> Verificamos se as bordas do passarinho interceptam os canos ou os limites do mapa.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto criado para publicação no <strong>GitHub Pages</strong>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
