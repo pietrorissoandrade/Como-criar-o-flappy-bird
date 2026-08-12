@@ -2,12 +2,11 @@ const canvas = document.getElementById("flappyCanvas");
 const ctx = canvas.getContext("2d");
 const restartBtn = document.getElementById("restartBtn");
 
-// Estado do Jogo
 let frames = 0;
 let score = 0;
 let gameOver = false;
 
-// Passarinho
+// Objeto do Passarinho
 const bird = {
   x: 50,
   y: 150,
@@ -22,7 +21,19 @@ const bird = {
     ctx.beginPath();
     ctx.arc(this.x + this.width / 2, this.y + this.height / 2, this.width / 2, 0, Math.PI * 2);
     ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#000";
     ctx.stroke();
+
+    // Olho do passarinho
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(this.x + 14, this.y + 6, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(this.x + 15, this.y + 6, 1.5, 0, Math.PI * 2);
+    ctx.fill();
   },
 
   update() {
@@ -35,7 +46,7 @@ const bird = {
       gameOver = true;
     }
 
-    // Limite superior
+    // Limite do teto
     if (this.y <= 0) {
       this.y = 0;
       this.velocity = 0;
@@ -47,13 +58,11 @@ const bird = {
   }
 };
 
-// Canos (Obstáculos)
+// Gerenciador de Canos
 const pipes = {
   position: [],
-  top: { sX: 56, sY: 3 },
-  bottom: { sX: 84, sY: 3 },
-  width: 40,
-  gap: 100,
+  width: 44,
+  gap: 110,
   dx: 2,
 
   draw() {
@@ -62,8 +71,11 @@ const pipes = {
       let topYPos = p.y;
       let bottomYPos = p.y + this.gap;
 
-      // Cano Superior
       ctx.fillStyle = "#73bf2e";
+      ctx.strokeStyle = "#2e5211";
+      ctx.lineWidth = 2;
+
+      // Cano Superior
       ctx.fillRect(p.x, 0, this.width, topYPos);
       ctx.strokeRect(p.x, 0, this.width, topYPos);
 
@@ -74,21 +86,18 @@ const pipes = {
   },
 
   update() {
-    // Adicionar novo cano a cada 120 frames
-    if (frames % 120 === 0) {
+    if (frames % 100 === 0) {
       this.position.push({
         x: canvas.width,
-        y: Math.floor(Math.random() * (canvas.height - this.gap - 100)) + 50
+        y: Math.floor(Math.random() * (canvas.height - this.gap - 100)) + 40
       });
     }
 
     for (let i = 0; i < this.position.length; i++) {
       let p = this.position[i];
-
-      // Mover cano para a esquerda
       p.x -= this.dx;
 
-      // Colisão com o Passarinho
+      // Detecção de Colisão
       if (
         bird.x + bird.width > p.x &&
         bird.x < p.x + this.width &&
@@ -97,13 +106,13 @@ const pipes = {
         gameOver = true;
       }
 
-      // Pontuação
+      // Incremento de Pontuação
       if (p.x + this.width < bird.x && !p.passed) {
         score++;
         p.passed = true;
       }
 
-      // Remover canos fora da tela
+      // Remover cano fora de tela
       if (p.x + this.width <= 0) {
         this.position.shift();
         i--;
@@ -116,23 +125,24 @@ const pipes = {
   }
 };
 
-// Desenhar Pontuação e Tela de Game Over
+// Interface de Pontuação
 function drawHUD() {
   ctx.fillStyle = "#FFF";
   ctx.strokeStyle = "#000";
-  ctx.lineWidth = 2;
-  ctx.font = "24px Arial";
-  ctx.fillText(`Pontos: ${score}`, 10, 30);
-  ctx.strokeText(`Pontos: ${score}`, 10, 30);
+  ctx.lineWidth = 3;
+  ctx.font = "bold 22px Arial";
+  ctx.fillText(`Pontos: ${score}`, 15, 35);
+  ctx.strokeText(`Pontos: ${score}`, 15, 35);
 
   if (gameOver) {
-    ctx.fillStyle = "red";
-    ctx.font = "30px Arial";
-    ctx.fillText("Game Over!", 80, canvas.height / 2);
+    ctx.fillStyle = "#e74c3c";
+    ctx.font = "bold 28px Arial";
+    ctx.fillText("Game Over!", 85, canvas.height / 2);
+    ctx.strokeText("Game Over!", 85, canvas.height / 2);
   }
 }
 
-// Loop Principal
+// Loop do Jogo
 function loop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -149,7 +159,6 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-// Reiniciar Jogo
 function resetGame() {
   bird.y = 150;
   bird.velocity = 0;
@@ -159,7 +168,7 @@ function resetGame() {
   gameOver = false;
 }
 
-// Controles
+// Eventos de Entrada
 window.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
     bird.flap();
@@ -172,5 +181,5 @@ canvas.addEventListener("click", () => {
 
 restartBtn.addEventListener("click", resetGame);
 
-// Iniciar Loop
+// Executar
 loop();
