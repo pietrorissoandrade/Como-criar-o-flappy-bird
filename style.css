@@ -190,3 +190,32 @@ header p {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
+/* Atualização de Fonte Global */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilização para imagens internas */
+.card-media {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+/* Atualização de Fonte Global */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilização para imagens internas */
+.card-media {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.featured-img {
+  width: 10
