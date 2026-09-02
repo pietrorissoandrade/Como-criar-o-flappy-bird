@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manual Definitivo: EA Sports FIFA & FC</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +22,9 @@
     
     <section class="card history-section">
       <h2>📜 A Origem e Evolução da Franquia</h2>
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80" alt="Cena de partida de futebol em videogame" class="featured-img">
+      </div>
       <p>
         Desenvolvido pela divisão <strong>EA Canada</strong> em Vancouver, o primeiro título (<em>FIFA International Soccer</em>, lançado no final de 1993) revolucionou o mercado com a câmera em visão isométrica. Na época, os jogos concorrentes utilizavam apenas visões superiores (top-down) ou totalmente 2D.
       </p>
@@ -33,15 +41,17 @@
       <p>Selecione uma era para explorar as inovações tecnológicas e marcos históricos:</p>
       
       <div class="timeline-buttons">
-        <button class="era-btn active" data-era="90s">1993 - 1999</button>
-        <button class="era-btn" data-era="00s">2000 - 2008</button>
-        <button class="era-btn" data-era="09s">2009 - 2016</button>
-        <button class="era-btn" data-era="17s">2017 - 2022</button>
-        <button class="era-btn" data-era="20s">2023 - Presente</button>
+        <button class="era-btn active" data-era="retro" onclick="selectEra('retro')">1993 - 1999</button>
+        <button class="era-btn" data-era="retro" onclick="selectEra('00s')">2000 - 2008</button>
+        <button class="era-btn" data-era="fut" onclick="selectEra('fut')">2009 - 2016</button>
+        <button class="era-btn" data-era="fut" onclick="selectEra('17s')">2017 - 2022</button>
+        <button class="era-btn" data-era="eafc" onclick="selectEra('eafc')">2023 - Presente</button>
       </div>
 
       <div id="eraDetails" class="era-box">
-        </div>
+        <h3>1993 - 1999: O Início da Era Isométrica</h3>
+        <p>Lançamento do FIFA 94 no Mega Drive/SNES introduzindo visão isométrica e gráficos revolucionários para a época.</p>
+      </div>
     </section>
 
     <section class="card stats-section">
@@ -56,8 +66,8 @@
           <p>Modo criado em 2009 que revolucionou a indústria dos eSports.</p>
         </div>
         <div class="stat-item">
-          <h3>EA Sports FC 24</h3>
-          <p>Primeiro título pós-renomeação com inclusão das ligas femininas no Ultimate Team.</p>
+          <h3>EA Sports FC</h3>
+          <p>Nova era pós-renomeação com inclusão das ligas femininas no Ultimate Team.</p>
         </div>
       </div>
     </section>
@@ -69,16 +79,16 @@
         <div class="manual-col">
           <h3>⚽ Ataque e Construção</h3>
           <ul>
-            <li><strong>Chute de Colocação:</strong> $L1 + \text{Chute}$ (PS) / $LB + \text{Chute}$ (Xbox). Ideal para finalizações curvadas no canto.</li>
-            <li><strong>Passe Rasteiro Forte:</strong> $R1 + X$ (PS) / $RB + A$ (Xbox). Quebra linhas defensivas compactas.</li>
-            <li><strong>Chute Superpotente (Power Shot):</strong> $L1 + R1 + \text{Chute}$ (PS) / $LB + RB + \text{Chute}$ (Xbox). Exige mira manual e espaço.</li>
+            <li><strong>Chute de Colocação:</strong> <kbd>L1</kbd> + <kbd>Chute</kbd> (PS) / <kbd>LB</kbd> + <kbd>Chute</kbd> (Xbox). Ideal para finalizações curvadas no canto.</li>
+            <li><strong>Passe Rasteiro Forte:</strong> <kbd>R1</kbd> + <kbd>X</kbd> (PS) / <kbd>RB</kbd> + <kbd>A</kbd> (Xbox). Quebra linhas defensivas compactas.</li>
+            <li><strong>Chute Superpotente (Power Shot):</strong> <kbd>L1</kbd> + <kbd>R1</kbd> + <kbd>Chute</kbd> (PS) / <kbd>LB</kbd> + <kbd>RB</kbd> + <kbd>Chute</kbd> (Xbox). Exige mira manual e espaço.</li>
           </ul>
         </div>
 
         <div class="manual-col">
           <h3>🛡️ Defesa e Posicionamento</h3>
           <ul>
-            <li><strong>Cercar Pacientemente (Jockey):</strong> Segurar $L2$ (PS) / $LT$ (Xbox) para manter o defensor de frente para o atacante sem dar o bote.</li>
+            <li><strong>Cercar Pacientemente (Jockey):</strong> Segurar <kbd>L2</kbd> (PS) / <kbd>LT</kbd> (Xbox) para manter o defensor de frente para o atacante sem dar o bote.</li>
             <li><strong>Cultura de Linha Alta:</strong> Use táticas de pressão para forçar erros na saída de bola adversária.</li>
           </ul>
         </div>
