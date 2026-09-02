@@ -16,6 +16,7 @@ body {
 }
 
 /* Background com imagens alternadas (Capas do FIFA ao EA FC) */
+/* Background com imagens de futebol alternadas */
 body::before {
   content: "";
   position: fixed;
@@ -24,10 +25,31 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.15; /* Opacidade baixa para não prejudicar a leitura */
+  opacity: 0.18; /* Ajuste para dar mais visibilidade ao fundo sem atrapalhar a leitura */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   animation: changeCovers 20s infinite ease-in-out;
+}
+
+@keyframes changeCovers {
+  0%, 20% {
+    /* Gramado de campo de futebol sob iluminação de refletores */
+    background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80');
+  }
+  25%, 45% {
+    /* Bola oficial no gramado de um estádio lotado */
+    background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=80');
+  }
+  50%, 70% {
+    /* Vista panorâmica de um estádio de futebol à noite */
+    background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80');
+  }
+  75%, 100% {
+    /* Detalhe da rede do gol com o campo ao fundo */
+    background-image: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1600&q=80');
+  }
+}
 }
 
 @keyframes changeCovers {
